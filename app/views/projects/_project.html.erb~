@@ -1,0 +1,13 @@
+<td>
+  <%= link_to project.name, project %>
+</td>
+<td>
+  <%= link_to("Edit", edit_project_path(project), :class => 'button-xs') %>
+</td>
+<td>
+  <%= link_to "Delete", project, :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'delete_project', :remote => true %>
+</td>
+<% if project.name.scan(/a/).count == 2 %>
+  <td> 2 </td>
+<% end %>
+

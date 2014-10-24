@@ -1,0 +1,6 @@
+<h3>Project</h3>
+<p><strong>Name:</strong> <%= @project.name if @project.name %></p>
+<p><strong>Description:</strong> <%= @project.description if @project.description %></p>
+<p><strong>Owner:</strong> <%= @project.user_id if @project.user_id %></p>
+</br>
+<%= link_to("Back", projects_index_path, :class => 'button right') %>

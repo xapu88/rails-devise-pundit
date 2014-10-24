@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
-  <li><%= link_to 'Projects', projects_index_path %></li>
   <% if current_user.admin? %>
+    <li><%= link_to 'Projects', projects_index_path %></li>
     <li><%= link_to 'Users', users_path %></li>
   <% end %>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
