@@ -1,6 +1,14 @@
 <h3>Project</h3>
 <p><strong>Name:</strong> <%= @project.name if @project.name %></p>
 <p><strong>Description:</strong> <%= @project.description if @project.description %></p>
-<p><strong>Owner:</strong> <%= @project.user_id if @project.user_id %></p>
+
+<p><strong>Unique token:</strong> <%= @project.token if @project.token %></p>
+
+<p><strong>Owner:</strong><%= @project.user_id if @project.user_id %></p>
+
+<p><strong>Project team:</strong>
+
+</p>
+
 </br>
-<%= link_to("Back", projects_index_path, :class => 'button right') %>
+<%= link_to("Back", projects_index_path, :class => 'button-xs') %>

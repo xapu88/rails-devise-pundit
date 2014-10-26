@@ -1,0 +1,6 @@
+$('.click_project').bind("click", function() {  
+        $(this).closest('tr').fadeOut();
+});
+
+
+

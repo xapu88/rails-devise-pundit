@@ -3,6 +3,9 @@
    <h3>My Projects</h3>
     <div class="column">
       <table class="table">
+        <th>
+          blblb
+        </th>
         <tbody>
           <% @projects.each do |project| %>
             <% if current_user.id == project.user_id %>
@@ -17,24 +20,24 @@
   </div>
 
 <%= link_to("New Project", projects_new_path, :class => 'button-xs') %>
-</br>
-</br>
-</br>
-</br>
 
+</br>
+</br>
+</br>
+</br>
   <div class="row">   
    <h3>Other Projects</h3>
     <div class="column">
       <table class="table">
         <tbody>
           <% @projects.each do |project| %>
-            <% if current_user.admin? %>        
+                    
               <% if current_user.id != project.user_id %>
                 <tr>
                   <%= render project %>
                 </tr>                
               <% end %>
-            <% end %>
+            
           <% end %>
         </tbody>
       </table>

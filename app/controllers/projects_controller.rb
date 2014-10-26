@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_path, :notice => "Project deleted." }
+      format.html { redirect_to projects_path }
       format.json { head :no_content }
       format.js   { render :layout => false }
     end
@@ -42,6 +42,18 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       render 'edit'
+    end
+  end
+  
+  def click
+    @project = Project.find(params[:id])
+    if @project.user_id != current_user.id
+      @project.increment! :countclicks
+    end
+    respond_to do |format|
+      format.html { redirect_to projects_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 

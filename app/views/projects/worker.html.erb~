@@ -1,0 +1,9 @@
+<div class="authform">
+
+<%= form_for :project, url: worker_project_path(project) do |f| %>
+    <%= collection_select(:project, :name, User.all, :id, :email) %>
+    <%= f.submit 'Add worker', :class => 'button-xs' %>
+  <% end %>
+<%= link_to("Cancel", project_path, :class => 'button-xs') %>
+
+</div>

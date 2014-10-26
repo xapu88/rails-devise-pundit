@@ -1,0 +1,4 @@
+class AddCountclicksToProjects < ActiveRecord::Migration
+  def change
+  end
+end

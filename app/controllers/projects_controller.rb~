@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_path, :notice => "Project deleted." }
+      format.html { redirect_to projects_path }
       format.json { head :no_content }
       format.js   { render :layout => false }
     end
@@ -44,9 +44,25 @@ class ProjectsController < ApplicationController
       render 'edit'
     end
   end
+  
+  def click
+    @project = Project.find(params[:id])
+    if @project.user_id != current_user.id
+      @project.increment! :countclicks
+    end
+    respond_to do |format|
+      format.html { redirect_to projects_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+
+  def worker
+    @project = Project.find(params[:id])
+  end
 
   private
     def project_params
-      params.require(:project).permit(:name, :description, :user_id)
+      params.require(:project).permit(:name, :description, :user_id, user_ids: [])
     end
 end

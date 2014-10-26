@@ -3,7 +3,7 @@
  
   <% if @project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being created:</h2>
       <ul>
         <% @project.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -21,6 +21,11 @@
     <div class="form-group">
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+     <%= f.label :workers %>
+     <%= hidden_field_tag "project[user_id][]", nil %>
+     <%= f.select :user_id, User.all.map{ |c| [c.email, c.id]}, {}, multiple: true, class: 'form-control' %>
     </div>
      <%= f.submit 'Create', :class => 'button left' %>
      <%= link_to("Cancel", projects_index_path, :class => 'button right') %>
